@@ -3,11 +3,15 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  */
 class User implements UserInterface
 {
@@ -47,11 +51,6 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $slug;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     private $introduction;
 
     /**
@@ -67,7 +66,34 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="boolean")
      */
-    private $gender;
+    private $isVerified = false;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="user")
+     */
+    private $comment;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Plateforme::class, mappedBy="user")
+     */
+    private $plateforme;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Jeuxvideo::class, mappedBy="user")
+     */
+    private $Jeuxvideo;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $agreeTerms;
+
+    public function __construct()
+    {
+        $this->comment = new ArrayCollection();
+        $this->plateforme = new ArrayCollection();
+        $this->Jeuxvideo = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -174,18 +200,6 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getSlug(): ?string
-    {
-        return $this->slug;
-    }
-
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
     public function getIntroduction(): ?string
     {
         return $this->introduction;
@@ -222,14 +236,116 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getGender(): ?bool
+    public function isVerified(): bool
     {
-        return $this->gender;
+        return $this->isVerified;
     }
 
-    public function setGender(bool $gender): self
+    public function setIsVerified(bool $isVerified): self
     {
-        $this->gender = $gender;
+        $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Commentaire[]
+     */
+    public function getComment(): Collection
+    {
+        return $this->comment;
+    }
+
+    public function addComment(Commentaire $comment): self
+    {
+        if (!$this->comment->contains($comment)) {
+            $this->comment[] = $comment;
+            $comment->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Commentaire $comment): self
+    {
+        if ($this->comment->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getUser() === $this) {
+                $comment->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Plateforme[]
+     */
+    public function getPlateforme(): Collection
+    {
+        return $this->plateforme;
+    }
+
+    public function addPlateforme(Plateforme $plateforme): self
+    {
+        if (!$this->plateforme->contains($plateforme)) {
+            $this->plateforme[] = $plateforme;
+            $plateforme->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePlateforme(Plateforme $plateforme): self
+    {
+        if ($this->plateforme->removeElement($plateforme)) {
+            // set the owning side to null (unless already changed)
+            if ($plateforme->getUser() === $this) {
+                $plateforme->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Jeuxvideo[]
+     */
+    public function getJeuxvideo(): Collection
+    {
+        return $this->Jeuxvideo;
+    }
+
+    public function addJeuxvideo(Jeuxvideo $jeuxvideo): self
+    {
+        if (!$this->Jeuxvideo->contains($jeuxvideo)) {
+            $this->Jeuxvideo[] = $jeuxvideo;
+            $jeuxvideo->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeJeuxvideo(Jeuxvideo $jeuxvideo): self
+    {
+        if ($this->Jeuxvideo->removeElement($jeuxvideo)) {
+            // set the owning side to null (unless already changed)
+            if ($jeuxvideo->getUser() === $this) {
+                $jeuxvideo->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getAgreeTerms(): ?bool
+    {
+        return $this->agreeTerms;
+    }
+
+    public function setAgreeTerms(bool $agreeTerms): self
+    {
+        $this->agreeTerms = $agreeTerms;
 
         return $this;
     }

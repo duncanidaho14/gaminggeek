@@ -27,6 +27,12 @@ class Image
      */
     private $url;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Jeuxvideo::class, inversedBy="images")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $jeuxvideo;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +58,18 @@ class Image
     public function setUrl(string $url): self
     {
         $this->url = $url;
+
+        return $this;
+    }
+
+    public function getJeuxvideo(): ?Jeuxvideo
+    {
+        return $this->jeuxvideo;
+    }
+
+    public function setJeuxvideo(?Jeuxvideo $jeuxvideo): self
+    {
+        $this->jeuxvideo = $jeuxvideo;
 
         return $this;
     }

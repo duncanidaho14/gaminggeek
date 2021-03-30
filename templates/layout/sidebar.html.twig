@@ -57,8 +57,9 @@
   </symbol>
 </svg>
 
-<div class="d-flex flex-column p-3 text-white bg-dark sidebar" style="width: 280px;">
-  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+<div class="sidebar">
+<div class="p-3 text-white bg-dark">
+  <a href="/" class="align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
     <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
     <span class="fs-4">Sidebar</span>
   </a>
@@ -110,17 +111,20 @@
     </ul>
   </div>
 </div>
+</div>
+
 
 <style>
-{# body {
+.sidebar {
   display: flex;
-  flex-wrap: nowrap;
-  height: 200vh;
+  flex: nowrap;
+  width: 480px;
+  height: 600vh;
   height: -webkit-fill-available;
   overflow-x: auto;
   overflow-y: hidden;
 }
-body > * {
+.sidebar > * {
   flex-shrink: 0;
   min-height: -webkit-fill-available;
 }
@@ -193,5 +197,5 @@ body > * {
 }
 
 .fw-semibold { font-weight: 600; }
-.lh-tight { line-height: 1.25; } #}
+.lh-tight { line-height: 1.25; }
 </style>

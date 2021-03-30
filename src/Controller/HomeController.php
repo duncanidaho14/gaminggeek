@@ -2,19 +2,25 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\UserRepository;
+use App\Repository\JeuxvideoRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HomeController extends AbstractController
 {
     /**
      * @Route("/", name="home")
      */
-    public function index(): Response
+    public function index(JeuxvideoRepository $jeuxvideoRepo, UserRepository $userRepository): Response
     {
+        $jeuxvideo = $jeuxvideoRepo->findAll();
+        $user = $userRepository->findAll();
+
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
+            'jeuxvideo' => $jeuxvideo,
+            'users' => $user
         ]);
     }
 }

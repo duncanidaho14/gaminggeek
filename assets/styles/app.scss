@@ -1,3 +1,23 @@
-body {
-    background-color: lightgray;
-}
+@import "./../../node_modules/bootstrap/scss/bootstrap";
+
+// Core variables and mixins
+@import "./../../node_modules/bootstrap/scss/_variables.scss";
+@import "./../../node_modules/bootstrap/scss/_mixins.scss";
+
+// Reset and dependencies
+// @import "./../../node_modules/bootstrap/scss/_normalize.scss";
+// @import "./../../node_modules/bootstrap/scss/print.scss";
+
+// Core CSS
+@import "./../../node_modules/bootstrap/scss/bootstrap-reboot.scss";
+@import "./../../node_modules/bootstrap/scss/_type.scss";
+@import "./../../node_modules/bootstrap/scss/bootstrap-grid.scss";
+
+// Utility classes
+@import "./../../node_modules/bootstrap/scss/_utilities";
+@import "./../../node_modules/bootstrap/scss/bootstrap-utilities.scss";
+
+
+
+@import 'register.scss';
+

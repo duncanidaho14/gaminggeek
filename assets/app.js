@@ -27,5 +27,10 @@ import "./styles/font-awesome.min.css";
 //import "./styles/jquery.mCustomScrollbar.css";
 import "./styles/style.css";
 
+import logo from './images/logo.png';
+import avatar2 from './images/avatar-2.jpg';
+import avatar3 from './images/avatar-3.jpg';
+import avatar4 from './images/avatar-4.jpg';
+
 export default $;
 

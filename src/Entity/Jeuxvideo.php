@@ -65,11 +65,23 @@ class Jeuxvideo
      */
     private $videos;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Plateforme::class, mappedBy="jeuxvideo")
+     */
+    private $plateformes;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="jeuxvideo")
+     */
+    private $commentaires;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
         $this->images = new ArrayCollection();
         $this->videos = new ArrayCollection();
+        $this->plateformes = new ArrayCollection();
+        $this->commentaires = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -230,6 +242,63 @@ class Jeuxvideo
             // set the owning side to null (unless already changed)
             if ($video->getJeuxvideo() === $this) {
                 $video->setJeuxvideo(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Plateforme[]
+     */
+    public function getPlateformes(): Collection
+    {
+        return $this->plateformes;
+    }
+
+    public function addPlateforme(Plateforme $plateforme): self
+    {
+        if (!$this->plateformes->contains($plateforme)) {
+            $this->plateformes[] = $plateforme;
+            $plateforme->addJeuxvideo($this);
+        }
+
+        return $this;
+    }
+
+    public function removePlateforme(Plateforme $plateforme): self
+    {
+        if ($this->plateformes->removeElement($plateforme)) {
+            $plateforme->removeJeuxvideo($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Commentaire[]
+     */
+    public function getCommentaires(): Collection
+    {
+        return $this->commentaires;
+    }
+
+    public function addCommentaire(Commentaire $commentaire): self
+    {
+        if (!$this->commentaires->contains($commentaire)) {
+            $this->commentaires[] = $commentaire;
+            $commentaire->setJeuxvideo($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommentaire(Commentaire $commentaire): self
+    {
+        if ($this->commentaires->removeElement($commentaire)) {
+            // set the owning side to null (unless already changed)
+            if ($commentaire->getJeuxvideo() === $this) {
+                $commentaire->setJeuxvideo(null);
             }
         }
 

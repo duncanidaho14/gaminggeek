@@ -28,6 +28,11 @@ class Commentaire
      */
     private $user;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Jeuxvideo::class, inversedBy="commentaires")
+     */
+    private $jeuxvideo;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -53,6 +58,18 @@ class Commentaire
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getJeuxvideo(): ?Jeuxvideo
+    {
+        return $this->jeuxvideo;
+    }
+
+    public function setJeuxvideo(?Jeuxvideo $jeuxvideo): self
+    {
+        $this->jeuxvideo = $jeuxvideo;
 
         return $this;
     }

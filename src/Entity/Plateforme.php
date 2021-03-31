@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PlateformeRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -32,6 +34,16 @@ class Plateforme
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Jeuxvideo::class, inversedBy="plateformes")
+     */
+    private $jeuxvideo;
+
+    public function __construct()
+    {
+        $this->jeuxvideo = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -70,6 +82,30 @@ class Plateforme
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Jeuxvideo[]
+     */
+    public function getJeuxvideo(): Collection
+    {
+        return $this->jeuxvideo;
+    }
+
+    public function addJeuxvideo(Jeuxvideo $jeuxvideo): self
+    {
+        if (!$this->jeuxvideo->contains($jeuxvideo)) {
+            $this->jeuxvideo[] = $jeuxvideo;
+        }
+
+        return $this;
+    }
+
+    public function removeJeuxvideo(Jeuxvideo $jeuxvideo): self
+    {
+        $this->jeuxvideo->removeElement($jeuxvideo);
 
         return $this;
     }

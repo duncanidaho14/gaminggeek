@@ -14,6 +14,7 @@ import 'bootstrap';
 
 import './pages/waves/js/waves.min.js';
 import './js/jquery-slimscroll/jquery.slimscroll.js';
+//import './js/jquery.mousewheel.min.js';
 //import './js/jquery.mCustomScrollbar.concat.min.js';
 import './js/pcoded.min.js';
 import './js/vertical/vertical-layout.min.js';

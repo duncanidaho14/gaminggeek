@@ -5,11 +5,17 @@
 @import "./../../node_modules/bootstrap/scss/_mixins.scss";
 
 @import 'register.scss';
+@import 'flip_card.scss';
+
+$gr-1: linear-gradient(170deg, #01E4F8 0%, #1D3EDE 100%);
+$gr-2: linear-gradient(170deg, #B4EC51 0%, #429321 100%);
+$gr-3: linear-gradient(170deg, #C86DD7 0%, #3023AE 100%);
 
 .cadre,
 .main {
     
   height: 100%;
+  background-color: $gr-1;
 }
 
 .main {
@@ -48,15 +54,15 @@
 }
 
 .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}

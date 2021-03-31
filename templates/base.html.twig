@@ -26,6 +26,9 @@
         {% endblock %}
     </head>
     <body>
+        {% include "./layout/pre_loader.html.twig" %}
+        {% include "./layout/nav.html.twig" %}
         {% block body %}{% endblock %}
+        {% include "./layout/footer.html.twig" %}
     </body>
 </html>

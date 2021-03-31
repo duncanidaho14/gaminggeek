@@ -75,6 +75,11 @@ class Jeuxvideo
      */
     private $commentaires;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $coverImage;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
@@ -301,6 +306,18 @@ class Jeuxvideo
                 $commentaire->setJeuxvideo(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCoverImage(): ?string
+    {
+        return $this->coverImage;
+    }
+
+    public function setCoverImage(string $coverImage): self
+    {
+        $this->coverImage = $coverImage;
 
         return $this;
     }

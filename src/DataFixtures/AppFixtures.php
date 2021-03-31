@@ -84,12 +84,15 @@ class AppFixtures extends Fixture
         for ($i=1; $i < 50; $i++) { 
             $jeuxvideo = new Jeuxvideo();
 
+            $user = $users[\mt_rand(0, count($users) - 1 )];
+            
             $jeuxvideo->setName($faker->sentence())
                     ->setReleaseDate($faker->dateTimeBetween('-40 years', '+3 years'))
                     ->setPrice($faker->randomFloat(2))
                     ->setIntroduction($faker->sentence())
                     ->setDescription('<p>'.join('<p></p>', $faker->paragraphs(3)) . '</p>')
                     ->setUser($user)
+                    ->setCoverImage($faker->imageUrl())
             ;
 
             /**

@@ -1,4 +1,4 @@
-      <div id="pcoded" class="pcoded">
+<div id="pcoded" class="pcoded">
         <div class="pcoded-overlay-box"></div>
         <div class="pcoded-container navbar-wrapper">
             <nav class="navbar header-navbar pcoded-header">
@@ -19,7 +19,7 @@
                             </div>
                         </div>
                         <a href="index.html">
-                            <img class="img-fluid" src="{{asset('build/images/logo.png') }}" alt="Theme-Logo" />
+                            <img class="img-fluid" src="{{asset('build/images/logo.png')}}" alt="Theme-Logo" />
                         </a>
                         <a class="mobile-options waves-effect waves-light">
                             <i class="ti-more"></i>
@@ -37,163 +37,97 @@
                             </li>
                         </ul>
                         {% if app.user %}
-                          <ul class="nav-right">
-                              <li class="header-notification">
-                                  <a href="#!" class="waves-effect waves-light">
-                                      <i class="ti-bell"></i>
-                                      <span class="badge bg-c-red"></span>
-                                  </a>
-                                  <ul class="show-notification">
-                                      <li>
-                                          <h6>Notifications</h6>
-                                          <label class="label label-danger">New</label>
-                                      </li>
-                                      <li class="waves-effect waves-light">
-                                          <div class="media">
-                                              <img class="d-flex align-self-center img-radius" src="{{app.user.avatar}}" alt="Generic placeholder image">
-                                              <div class="media-body">
-                                                  <h5 class="notification-user">{{ app.user.firstName }} </h5>
-                                                  <p class="notification-msg"></p>
-                                                  <span class="notification-time">6 jours</span>
-                                              </div>
-                                          </div>
-                                      </li>
-                                      <li class="waves-effect waves-light">
-                                          <div class="media">
-                                              <img class="d-flex align-self-center img-radius" src="{{asset('build/images/avatar-4.jpg')}}" alt="Generic placeholder image">
-                                              <div class="media-body">
-                                                  <h5 class="notification-user">Joseph William</h5>
-                                                  <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                                                  <span class="notification-time">30 minutes ago</span>
-                                              </div>
-                                          </div>
-                                      </li>
-                                      <li class="waves-effect waves-light">
-                                          <div class="media">
-                                              <img class="d-flex align-self-center img-radius" src="{{asset('build/images/avatar-3.jpg')}}" alt="Generic placeholder image">
-                                              <div class="media-body">
-                                                  <h5 class="notification-user">Sara Soudein</h5>
-                                                  <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                                                  <span class="notification-time">30 minutes ago</span>
-                                              </div>
-                                          </div>
-                                      </li>
-                                  </ul>
-                              </li>
-                              <li class="user-profile header-notification">
-                                  <a href="#!" class="waves-effect waves-light">
-                                      <img src="{{app.user.avatar}}" class="img-radius" alt="User-Profile-Image">
-                                      <span>{{app.user.firstName}} {{ app.user.lastName}} </span>
-                                      <i class="ti-angle-down"></i>
-                                  </a>
-                                  <ul class="show-notification profile-notification">
-                                      <li class="waves-effect waves-light">
-                                          <a href="#!">
-                                              <i class="ti-settings"></i> Changer Mot de Passe 
-                                          </a>
-                                      </li>
-                                      <li class="waves-effect waves-light">
-                                          <a href="user-profile.html">
-                                              <i class="ti-user"></i> Profil
-                                          </a>
-                                      </li>
-                                      <li class="waves-effect waves-light">
-                                          <a href="email-inbox.html">
-                                              <i class="ti-email"></i> Mes Messages
-                                          </a>
-                                      </li>
-                                      <li class="waves-effect waves-light">
-                                          <a href="auth-lock-screen.html">
-                                              <i class="ti-lock"></i> Mon Panier
-                                          </a>
-                                      </li>
-                                      <li class="waves-effect waves-light">
-                                          <a href="{{path('app_logout')}}">
-                                              <i class="ti-layout-sidebar-left"></i> Déconnexion
-                                          </a>
-                                      </li>
-                                  </ul>
-                              </li>
-                          </ul>
+                        <ul class="nav-right">
+                            <li class="header-notification">
+                                <a href="#!" class="waves-effect waves-light">
+                                    <i class="ti-bell"></i>
+                                    <span class="badge bg-c-red"></span>
+                                </a>
+                                <ul class="show-notification">
+                                    <li>
+                                        <h6>Notifications</h6>
+                                        <label class="label label-danger">New</label>
+                                    </li>
+                                    <li class="waves-effect waves-light">
+                                        <div class="media">
+                                            <img class="d-flex align-self-center img-radius" src="{{asset('build/images/avatar-2.jpg')}}" alt="Generic placeholder image">
+                                            <div class="media-body">
+                                                <h5 class="notification-user">John Doe</h5>
+                                                <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                                                <span class="notification-time">30 minutes ago</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="waves-effect waves-light">
+                                        <div class="media">
+                                            <img class="d-flex align-self-center img-radius" src="{{asset('build/images/avatar-4.jpg')}}" alt="Generic placeholder image">
+                                            <div class="media-body">
+                                                <h5 class="notification-user">Joseph William</h5>
+                                                <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                                                <span class="notification-time">30 minutes ago</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="waves-effect waves-light">
+                                        <div class="media">
+                                            <img class="d-flex align-self-center img-radius" src="{{asset('build/images/avatar-3.jpg')}}" alt="Generic placeholder image">
+                                            <div class="media-body">
+                                                <h5 class="notification-user">Sara Soudein</h5>
+                                                <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                                                <span class="notification-time">30 minutes ago</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="user-profile header-notification">
+                                <a href="#!" class="waves-effect waves-light">
+                                    <img src="{{asset('build/images/avatar-4.jpg')}}" class="img-radius" alt="User-Profile-Image">
+                                    <span>{{app.user.firstName}}</span>
+                                    <i class="ti-angle-down"></i>
+                                </a>
+                                <ul class="show-notification profile-notification">
+                                    <li class="waves-effect waves-light">
+                                        <a href="#!">
+                                            <i class="ti-settings"></i> Settings
+                                        </a>
+                                    </li>
+                                    <li class="waves-effect waves-light">
+                                        <a href="user-profile.html">
+                                            <i class="ti-user"></i> Profile
+                                        </a>
+                                    </li>
+                                    <li class="waves-effect waves-light">
+                                        <a href="email-inbox.html">
+                                            <i class="ti-email"></i> My Messages
+                                        </a>
+                                    </li>
+                                    <li class="waves-effect waves-light">
+                                        <a href="auth-lock-screen.html">
+                                            <i class="ti-lock"></i> Lock Screen
+                                        </a>
+                                    </li>
+                                    <li class="waves-effect waves-light">
+                                        <a href="{{path('app_logout')}}">
+                                            <i class="ti-layout-sidebar-left"></i> Déconnexion
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
                         {% else %}
-                          <ul class="nav-right">
-                              <li class="header-notification">
-                                  <a href="#!" class="waves-effect waves-light">
-                                      <i class="ti-bell"></i>
-                                      <span class="badge bg-c-red"></span>
-                                  </a>
-                                  <ul class="show-notification">
-                                      <li>
-                                          <h6>Notifications</h6>
-                                          <label class="label label-danger">New</label>
-                                      </li>
-                                      <li class="waves-effect waves-light">
-                                          <div class="media">
-                                              <img class="d-flex align-self-center img-radius" src="{{asset('build/images/avatar-2.jpg')}}" alt="Generic placeholder image">
-                                              <div class="media-body">
-                                                  <h5 class="notification-user"> Anonyme</h5>
-                                                  <p class="notification-msg"></p>
-                                                  <span class="notification-time">6 jours</span>
-                                              </div>
-                                          </div>
-                                      </li>
-                                      <li class="waves-effect waves-light">
-                                          <div class="media">
-                                              <img class="d-flex align-self-center img-radius" src="{{asset('build/images/avatar-4.jpg')}}" alt="Generic placeholder image">
-                                              <div class="media-body">
-                                                  <h5 class="notification-user">Joseph William</h5>
-                                                  <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                                                  <span class="notification-time">30 minutes ago</span>
-                                              </div>
-                                          </div>
-                                      </li>
-                                      <li class="waves-effect waves-light">
-                                          <div class="media">
-                                              <img class="d-flex align-self-center img-radius" src="{{asset('build/images/avatar-3.jpg')}}" alt="Generic placeholder image">
-                                              <div class="media-body">
-                                                  <h5 class="notification-user">Sara Soudein</h5>
-                                                  <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                                                  <span class="notification-time">30 minutes ago</span>
-                                              </div>
-                                          </div>
-                                      </li>
-                                  </ul>
-                              </li>
-                              <li class="user-profile header-notification">
-                                  <a href="#!" class="waves-effect waves-light">
-                                      <img src="{{asset('build/images/avatar-4.jpg')}}" class="img-radius" alt="User-Profile-Image">
-                                      <span>Anonyme</span>
-                                      <i class="ti-angle-down"></i>
-                                  </a>
-                                  <ul class="show-notification profile-notification">
-                                      <li class="waves-effect waves-light">
-                                          <a href="#!">
-                                              <i class="ti-settings"></i> Changer Mot de Passe 
-                                          </a>
-                                      </li>
-                                      <li class="waves-effect waves-light">
-                                          <a href="user-profile.html">
-                                              <i class="ti-user"></i> Profil
-                                          </a>
-                                      </li>
-                                      <li class="waves-effect waves-light">
-                                          <a href="email-inbox.html">
-                                              <i class="ti-email"></i> Mes Messages
-                                          </a>
-                                      </li>
-                                      <li class="waves-effect waves-light">
-                                          <a href="auth-lock-screen.html">
-                                              <i class="ti-lock"></i> Mon Panier
-                                          </a>
-                                      </li>
-                                      <li class="waves-effect waves-light">
-                                          <a href="{{path('app_logout')}}">
-                                              <i class="ti-layout-sidebar-left"></i> Déconnexion
-                                          </a>
-                                      </li>
-                                  </ul>
-                              </li>
-                          </ul>
+                            <ul class="nav-right">
+                                <li class="waves-effect waves-light">
+                                    <a href="{{path('app_login')}}">
+                                        <i class="fa fa-user"></i> Connexion
+                                    </a>
+                                </li>
+                                <li class="waves-effect waves-light">
+                                    <a href="{{path('app_register')}}">
+                                        <i class="fa fa-list"></i> S'inscrire
+                                    </a>
+                                </li>
+                            </ul>
                         {% endif %}
                     </div>
                 </div>
@@ -204,32 +138,34 @@
                     <nav class="pcoded-navbar">
                         <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
                         <div class="pcoded-inner-navbar main-menu">
+                            {% if app.user %}
                             <div class="">
-                              {% if app.user %}
                                 <div class="main-menu-header">
                                     <img class="img-80 img-radius" src="{{app.user.avatar}}" alt="User-Profile-Image">
                                     <div class="user-details">
-                                        <span id="more-details">{{app.user.firstName}} {{app.user.lastName}} <i class="fa fa-caret-down"></i></span>
+                                        <span id="more-details">{{app.user.firstName}} {{app.user.lastName}}<i class="fa fa-caret-down"></i></span>
                                     </div>
                                 </div>
-                              {% else %}
-                                <div class="main-menu-header">
-                                    <img class="img-80 img-radius" src="{{asset('build/images/avatar-2.jpg')}}" alt="User-Profile-Image">
-                                    <div class="user-details">
-                                        <span id="more-details">Anonyme<i class="fa fa-caret-down"></i></span>
-                                    </div>
-                                </div>  
-                              {% endif %}
                                 <div class="main-menu-content">
                                     <ul>
                                         <li class="more-details">
-                                            <a href="user-profile.html"><i class="ti-user"></i>View Profile</a>
-                                            <a href="#!"><i class="ti-settings"></i>Settings</a>
-                                            <a href="auth-normal-sign-in.html"><i class="ti-layout-sidebar-left"></i>Logout</a>
+                                            <a href="user-profile.html"><i class="ti-user"></i>Profil</a>
+                                            <a href="#!"><i class="ti-settings"></i>Configuration</a>
+                                            <a href="{{path('app_logout')}}"><i class="ti-layout-sidebar-left"></i>Déconnexion</a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
+                            {% else %}
+                                <div class="">
+                                <div class="main-menu-header">
+                                    <img class="img-80 img-radius" src="{{asset('build/images/avatar-4.jpg')}}" alt="User-Profile-Image">
+                                    <div class="user-details">
+                                        <span id="more-details">Anonyme</span>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
                             <div class="p-15 p-b-0">
                                 <form class="form-material">
                                     <div class="form-group form-primary">
@@ -239,7 +175,7 @@
                                     </div>
                                 </form>
                             </div>
-                            <div class="pcoded-navigation-label">Navigation</div>
+                            <div class="pcoded-navigation-label">Jeux vidéo</div>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li class="active">
                                     <a href="index.html" class="waves-effect waves-dark">
@@ -403,19 +339,27 @@
                                 <div class="row align-items-center">
                                     <div class="col-md-8">
                                         <div class="page-header-title">
-                                            <h5 class="m-b-10">Dashboard</h5>
-                                            <p class="m-b-0">Welcome to Material Able</p>
+                                            <h5 class="m-b-10">Home</h5>
+                                            <p class="m-b-0">Bienvenue sur jeux vidéo d'occasion</p>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <ul class="breadcrumb">
                                             <li class="breadcrumb-item">
-                                                <a href="index.html"> <i class="fa fa-home"></i> </a>
+                                                <a href="{{path('home')}}"> <i class="fa fa-home"></i> </a>
                                             </li>
-                                            <li class="breadcrumb-item"><a href="#!">Dashboard</a>
+                                            <li class="breadcrumb-item"><a href="#!">Home</a>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- Page-header end -->
+                        <div class="pcoded-inner-content">
+                            <!-- Main-body start -->
+                            <div class="main-body">
+                                <div class="page-wrapper">
+                                    <!-- Page-body start -->
+                                    <div class="page-body">
+                                        <div class="row">

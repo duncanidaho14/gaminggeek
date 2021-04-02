@@ -88,11 +88,23 @@ class User implements UserInterface
      */
     private $agreeTerms;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Role::class, mappedBy="user")
+     */
+    private $usersRoles;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Video::class, mappedBy="user")
+     */
+    private $videos;
+
     public function __construct()
     {
         $this->comment = new ArrayCollection();
         $this->plateforme = new ArrayCollection();
         $this->Jeuxvideo = new ArrayCollection();
+        $this->usersRoles = new ArrayCollection();
+        $this->videos = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -346,6 +358,63 @@ class User implements UserInterface
     public function setAgreeTerms(bool $agreeTerms): self
     {
         $this->agreeTerms = $agreeTerms;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Role[]
+     */
+    public function getUsersRoles(): Collection
+    {
+        return $this->usersRoles;
+    }
+
+    public function addUsersRole(Role $usersRole): self
+    {
+        if (!$this->usersRoles->contains($usersRole)) {
+            $this->usersRoles[] = $usersRole;
+            $usersRole->addUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUsersRole(Role $usersRole): self
+    {
+        if ($this->usersRoles->removeElement($usersRole)) {
+            $usersRole->removeUser($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Video[]
+     */
+    public function getVideos(): Collection
+    {
+        return $this->videos;
+    }
+
+    public function addVideo(Video $video): self
+    {
+        if (!$this->videos->contains($video)) {
+            $this->videos[] = $video;
+            $video->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVideo(Video $video): self
+    {
+        if ($this->videos->removeElement($video)) {
+            // set the owning side to null (unless already changed)
+            if ($video->getUser() === $this) {
+                $video->setUser(null);
+            }
+        }
 
         return $this;
     }

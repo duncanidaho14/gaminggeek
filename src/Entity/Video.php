@@ -33,6 +33,11 @@ class Video
      */
     private $jeuxvideo;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="videos")
+     */
+    private $user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -70,6 +75,18 @@ class Video
     public function setJeuxvideo(?Jeuxvideo $jeuxvideo): self
     {
         $this->jeuxvideo = $jeuxvideo;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

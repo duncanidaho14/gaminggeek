@@ -8,6 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
@@ -30,7 +31,8 @@ class JeuxvideoCrudController extends AbstractCrudController
             TextField::new('introduction'),
             TextEditorField::new('description'),
             ImageField::new('coverImage'),
-            AssociationField::new('user')
+            AssociationField::new('user'),
+            CollectionField::new('categories'),
         ];
     }
     

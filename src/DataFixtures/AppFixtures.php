@@ -88,7 +88,7 @@ class AppFixtures extends Fixture
             
             $jeuxvideo->setName($faker->sentence())
                     ->setReleaseDate($faker->dateTimeBetween('-40 years', '+3 years'))
-                    ->setPrice($faker->randomFloat(2))
+                    ->setPrice($faker->randomFloat(2, 1, 1000))
                     ->setIntroduction($faker->sentence())
                     ->setDescription('<p>'.join('<p></p>', $faker->paragraphs(3)) . '</p>')
                     ->setUser($user)

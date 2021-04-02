@@ -107,6 +107,10 @@ class User implements UserInterface
         $this->videos = new ArrayCollection();
     }
 
+    public function __toString() {
+        return $this->getFirstName();
+    }
+
     public function getId(): ?int
     {
         return $this->id;

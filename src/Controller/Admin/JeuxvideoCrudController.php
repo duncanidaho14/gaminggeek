@@ -30,9 +30,11 @@ class JeuxvideoCrudController extends AbstractCrudController
             MoneyField::new('price')->setCurrency('EUR'),
             TextField::new('introduction'),
             TextEditorField::new('description'),
-            ImageField::new('coverImage'),
+            ImageField::new('coverImage')
+            ->onlyOnIndex()
+            ->setBasePath('/build/images/questions'),
             AssociationField::new('user'),
-            CollectionField::new('categories'),
+            AssociationField::new('categories'),
         ];
     }
     

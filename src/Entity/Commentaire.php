@@ -33,6 +33,11 @@ class Commentaire
      */
     private $jeuxvideo;
 
+    public function __toString()
+    {
+        return  $this->getComment();
+    }
+
     public function getId(): ?int
     {
         return $this->id;

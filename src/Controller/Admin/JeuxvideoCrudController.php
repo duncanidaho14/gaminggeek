@@ -35,6 +35,10 @@ class JeuxvideoCrudController extends AbstractCrudController
             ->setBasePath('/build/images/questions'),
             AssociationField::new('user'),
             AssociationField::new('categories'),
+            AssociationField::new('images'),
+            AssociationField::new('videos'),
+            AssociationField::new('plateformes'),
+            AssociationField::new('commentaires'),
         ];
     }
     
